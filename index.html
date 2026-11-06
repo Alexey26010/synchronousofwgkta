@@ -1,550 +1,922 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Идеальное место для себя</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        @import url('https://fonts.cdnfonts.com/css/princess-diana'); 
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Синхрон: куда пойти после уроков всей компанией</title>
+<meta name="description" content="Выбираем место для всей компании: всем по дороге, по карману и по возрасту. Школьный проект команды «Авантюристы».">
+<meta property="og:title" content="Синхрон: куда пойдём после уроков? Решим за минуту">
+<meta property="og:description" content="Одно место для всей компании: всем по дороге, по карману и по возрасту.">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9b618917-6532-41ec-868b-b92215ade898" type="text/javascript"></script>
 
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
+:root{
+  --teal:#1F3B40; --teal-2:#2F5258; --teal-3:#173034;
+  --mint:#A9D9BF; --mint-2:#7DD1AF; --berry:#830028;
+  --fog:#EEF3F0; --paper:#FFFFFF; --ink:#1A2C2F; --muted:#56665F; --line:#D3DED8;
+  --head:'Bitter', Georgia, 'PT Serif', serif;
+  --body:'Onest', 'Segoe UI', Roboto, Arial, sans-serif;
+  --r-lg:22px; --r-md:14px; --r-pill:999px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--fog);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);line-height:1.08;margin:0;letter-spacing:-0.01em}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--mint-2);outline-offset:3px;border-radius:6px}
+[hidden]{display:none !important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FFFFFF;
-            color: #5A3A29;
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            padding-top: 80px;
-        }
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:var(--r-pill);font:600 16px/1 var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease, background-color .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-mint{background:var(--mint-2);color:var(--teal)}
+.btn-mint:hover{background:#95dcc0}
+.btn-line{border-color:rgba(169,217,191,.55);color:#fff;background:transparent}
+.btn-line:hover{background:rgba(169,217,191,.12)}
+.btn-teal{background:var(--teal);color:#fff}
+.btn-teal:hover{background:var(--teal-2)}
+.btn-ghost{background:transparent;border-color:var(--teal);color:var(--teal)}
+.btn-ghost:hover{background:rgba(31,59,64,.06)}
 
-        h1, h2, h3, .logo {
-            font-family: 'Playfair Display', serif;
-        }
+/* header */
+.top{position:sticky;top:0;z-index:20;background:var(--teal);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 22px/1 var(--head);color:#fff}
+.brand img{height:34px;width:auto}
+.nav{display:flex;gap:22px;font-size:15px}
+.nav a{text-decoration:none;opacity:.86}
+.nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.top .btn{min-height:40px;padding:0 16px;font-size:15px}
+@media (max-width:860px){.nav{display:none}}
 
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+/* hero */
+.hero{background:var(--teal);color:#fff;padding:44px 0 64px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,64px);font-weight:800;max-width:14ch}
+.hero .sub{margin-top:20px;font-size:clamp(18px,1.6vw,21px);color:#D6EBE0;max-width:30ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.proof{display:flex;gap:10px;align-items:flex-start;margin-top:26px;font-size:15px;color:#BFD9CC;max-width:44ch}
+.proof b{color:#fff;font-weight:600}
+.proof::before{content:"";flex:0 0 10px;height:10px;margin-top:6px;border-radius:50%;background:var(--berry);box-shadow:0 0 0 3px rgba(131,0,40,.35)}
 
-        .btn {
-            display: inline-block;
-            background-color: #6FD3A9;
-            color: #FFFFFF;
-            padding: 16px 36px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            border-radius: 50px;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
-            border: 1px solid transparent;
-            box-shadow: 0 4px 15px rgba(111, 211, 169, 0.3);
-        }
+/* chat (the one orchestrated moment) */
+.chat{background:var(--teal-3);border:1px solid rgba(255,255,255,.07);border-radius:28px;padding:18px;max-width:440px;justify-self:end;width:100%}
+.chat-head{display:flex;justify-content:space-between;align-items:baseline;padding:2px 6px 14px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:14px}
+.chat-head strong{font-weight:600}
+.chat-head span{font-size:13px;color:#9FC2B2}
+.msg{max-width:82%;margin:0 0 10px;padding:10px 14px;border-radius:18px 18px 18px 6px;background:#fff;color:var(--ink);font-size:15px;line-height:1.35}
+.msg small{display:block;font-size:12px;color:var(--muted);margin-bottom:2px}
+.msg.me{margin-left:auto;border-radius:18px 18px 6px 18px;background:var(--mint)}
+.bot{background:#fff;color:var(--ink);border-radius:18px;padding:14px 16px;margin:4px 0 10px}
+.bot-head{display:flex;align-items:center;gap:8px;font:700 16px/1.2 var(--head);color:var(--teal);margin-bottom:8px}
+.bot-head svg{flex:0 0 18px}
+.bot ol{margin:0;padding-left:20px;font-size:15px;line-height:1.45}
+.bot ol li{margin:2px 0}
+.bot ol span{color:var(--muted)}
+.bot p{margin-top:8px;font-size:13px;color:var(--muted)}
+.chat > *{animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+.chat > *:nth-child(2){animation-delay:.25s}
+.chat > *:nth-child(3){animation-delay:.9s}
+.chat > *:nth-child(4){animation-delay:1.55s}
+.chat > *:nth-child(5){animation-delay:2.2s}
+.chat > *:nth-child(6){animation-delay:3.1s}
+.chat > *:nth-child(7){animation-delay:3.9s}
+.chat > *:nth-child(8){animation-delay:4.4s}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.chat > *{animation:none}html{scroll-behavior:auto}}
 
-        .btn:hover {
-            background-color: #56B890;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(111, 211, 169, 0.5);
-        }
+@media (max-width:900px){
+  .hero{padding:28px 0 48px}
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .chat{justify-self:start}
+  .hero h1{max-width:none}
+}
+@media (max-width:480px){
+  .hero{padding:20px 0 40px}
+  .hero .sub{margin-top:14px;font-size:17px}
+  .hero .cta{margin-top:20px;gap:10px}
+  .hero .btn{padding:0 16px;font-size:15px}
+  .proof{margin-top:18px;font-size:14px}
+  .top .btn{padding:0 14px;font-size:14px}
+}
 
-        .btn-outline {
-            background-color: transparent;
-            color: #6FD3A9;
-            border: 1px solid #6FD3A9;
-            box-shadow: none;
-        }
+/* sections */
+section{padding:84px 0}
+.sec-title{font-size:clamp(30px,3.6vw,44px);font-weight:800;color:var(--teal);max-width:22ch}
+.sec-lead{margin-top:14px;color:var(--muted);max-width:60ch}
 
-        .btn-outline:hover {
-            background-color: #6FD3A9;
-            color: #FFFFFF;
-        }
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:40px;counter-reset:s}
+.step{border-top:2px solid var(--teal);padding-top:18px}
+.step::before{counter-increment:s;content:counter(s);display:block;font:800 44px/1 var(--head);color:var(--berry);margin-bottom:12px}
+.step h3{font-size:22px;color:var(--teal)}
+.step p{margin-top:8px;color:var(--ink)}
+@media (max-width:760px){.steps{grid-template-columns:1fr;gap:26px}}
 
-        .italic-accent {
-            font-family: 'Princess Diana', cursive;
-            font-style: italic;
-            font-weight: normal;
-            color: #6FD3A9;
-        }
+/* tool */
+#tool{background:var(--paper)}
+.tool{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;margin-top:36px;align-items:start}
+@media (max-width:900px){.tool{grid-template-columns:1fr}}
+.form{background:var(--fog);border-radius:var(--r-lg);padding:24px}
+.form fieldset{border:0;margin:0 0 22px;padding:0}
+.form legend{font-weight:600;margin-bottom:10px;font-size:16px;color:var(--teal)}
+.friend{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) 40px;gap:8px;margin-bottom:8px}
+.friend input{width:100%;min-height:44px;border:1px solid var(--line);border-radius:12px;padding:0 12px;font:16px var(--body);color:var(--ink);background:#fff}
+.friend input[aria-invalid="true"]{border-color:var(--berry);background:#fff6f8}
+.friend .del{min-height:44px;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:22px;cursor:pointer}
+.friend .del:hover{background:#e3ebe7;color:var(--ink)}
+.err{grid-column:1/-1;font-size:14px;color:var(--berry);margin:-2px 0 4px}
+.add{border:0;background:none;color:var(--teal);font:600 15px var(--body);padding:6px 0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.add[disabled]{opacity:.45;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:var(--r-pill);border:1px solid var(--line);background:#fff;font-size:15px;cursor:pointer}
+.chips input:checked + label{background:var(--teal);border-color:var(--teal);color:#fff}
+.chips input:focus-visible + label{outline:3px solid var(--mint-2);outline-offset:2px}
+.form select{min-height:44px;border:1px solid var(--line);border-radius:12px;padding:0 12px;font:16px var(--body);background:#fff;color:var(--ink)}
+.form .go{width:100%;margin-top:6px}
 
-        header {
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #FBF8F1;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(90, 58, 41, 0.05);
-        }
+.results{min-height:200px}
+.empty{border:2px dashed var(--line);border-radius:var(--r-lg);padding:32px;color:var(--muted)}
+.empty strong{display:block;color:var(--teal);font:700 20px/1.2 var(--head);margin-bottom:6px}
+.res-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:14px}
+.res-head h3{font-size:24px;color:var(--teal)}
+.note{font-size:14px;color:var(--muted)}
+.place{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:14px;animation:pop .35s ease both}
+.place:nth-child(2){animation-delay:.06s}
+.place:nth-child(3){animation-delay:.12s}
+.place-top{display:flex;gap:14px;align-items:flex-start}
+.rank{flex:0 0 36px;height:36px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font:800 17px/1 var(--head)}
+.place:first-child .rank{background:var(--berry)}
+.place h4{font:700 20px/1.2 var(--head);margin:2px 0 4px;color:var(--ink)}
+.meta{font-size:14px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font-size:13px;padding:4px 10px;border-radius:var(--r-pill);background:var(--fog);color:var(--teal)}
+.tag.p{background:#F3E3E8;color:var(--berry)}
+.bars{margin:14px 0 4px;display:grid;gap:6px}
+.bar{display:grid;grid-template-columns:minmax(0,9.5em) 1fr 4.5em;align-items:center;gap:10px;font-size:14px}
+.bar span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar i{display:block;height:8px;border-radius:8px;background:var(--mint-2)}
+.bar.far i{background:var(--teal)}
+.bar b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.why{margin-top:8px;font-size:15px}
+.links{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:15px}
+.links a{color:var(--teal);font-weight:600;text-underline-offset:4px}
+.share{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.fine{margin-top:12px;font-size:13px;color:var(--muted)}
 
-        .header-logo {
-            height: 45px;
-            width: auto;
-            display: block;
-        }
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.fact{padding:24px 24px 8px 0;border-right:1px solid var(--line);margin-right:24px}
+.fact:last-child{border-right:0;margin-right:0}
+.fact .n{font:800 46px/1 var(--head);color:var(--teal);white-space:nowrap}
+.fact.local .n{color:var(--berry)}
+.fact p{margin-top:10px;font-size:16px}
+.fact small{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+.fact small a{text-underline-offset:3px}
+@media (max-width:960px){.facts{grid-template-columns:1fr 1fr}.fact:nth-child(2){border-right:0;margin-right:0}}
+@media (max-width:560px){.facts{grid-template-columns:1fr}.fact{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding-bottom:20px}}
 
-        .nav-link {
-            color: #5A3A29;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            padding-bottom: 4px;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s;
-            margin-left: auto;
-        }
+/* venues */
+#venues{background:var(--teal);color:#fff}
+#venues .sec-title{color:#fff}
+#venues .sec-lead{color:#C9E2D6}
+.biz{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:48px;margin-top:36px;align-items:start}
+@media (max-width:900px){.biz{grid-template-columns:1fr}}
+.terms{margin:0;display:grid;gap:18px}
+.terms div{display:grid;grid-template-columns:8.5em 1fr;gap:16px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12)}
+.terms dt{font-weight:600;color:var(--mint)}
+.terms dd{margin:0}
+@media (max-width:520px){.terms div{grid-template-columns:1fr;gap:4px}}
+.receipt{background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:24px 24px 22px;position:relative}
+.receipt h3{font-size:22px;color:var(--teal)}
+.receipt .r-sub{font-size:14px;color:var(--muted);margin-top:4px}
+.slider{margin-top:18px}
+.slider label{display:flex;justify-content:space-between;font-size:15px;gap:12px}
+.slider output{font-weight:700;font-variant-numeric:tabular-nums}
+.slider input{width:100%;margin-top:8px;accent-color:var(--teal)}
+.sum{margin-top:20px;border-top:2px dashed var(--line);padding-top:14px;display:grid;gap:8px;font-variant-numeric:tabular-nums}
+.sum div{display:flex;justify-content:space-between;gap:12px}
+.sum .big{font:800 24px/1.2 var(--head);color:var(--teal)}
+.sum .fee{color:var(--berry);font-weight:600}
+.receipt .btn{width:100%;margin-top:18px}
+.receipt .wait{margin-top:16px;font-size:14px;color:var(--muted)}
 
-        .nav-link:hover {
-            border-bottom-color: #6FD3A9;
-            color: #6FD3A9;
-        }
+/* parents + team */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:56px}}
+.plain{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:14px}
+.plain li{padding-left:22px;position:relative}
+.plain li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:10px;border-radius:50%;background:var(--mint-2)}
+.team{list-style:none;margin:24px 0 0;padding:0}
+.team li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.team li b{font-weight:600}
+.team li span{color:var(--muted);text-align:right}
 
-        .hero {
-            padding: 80px 0 100px;
-            text-align: center;
-            background-color: #FFFFFF;
-            position: relative;
-        }
+footer{background:var(--teal-3);color:#C9E2D6;padding:40px 0 48px;font-size:14px}
+footer .wrap{display:grid;gap:10px}
+footer strong{color:#fff;font-weight:600}
+footer a{color:#fff;text-underline-offset:3px}
 
-        .hero-map {
-            display: block;
-            margin: 0 auto 40px;
-            max-width: 650px;
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(90, 58, 41, 0.15);
-            border: 4px solid #FFFFFF;
-        }
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-size:15px;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;max-width:calc(100% - 32px);z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%)}
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 24px;
-            line-height: 1.15;
-            color: #5A3A29;
-            letter-spacing: -0.5px;
-        }
-
-        .hero .subtitle {
-            font-size: 1.15rem;
-            max-width: 620px;
-            margin: 0 auto 48px;
-            color: #7A5C4A;
-            font-weight: 400;
-        }
-
-        .proof {
-            margin-top: 28px;
-            font-size: 0.85rem;
-            color: #8C1C38;
-            font-style: italic;
-            letter-spacing: 0.5px;
-        }
-
-        .how-it-works {
-            padding: 100px 0;
-            background-color: #FBF8F1;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 70px;
-            color: #5A3A29;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: #6FD3A9;
-            margin: 20px auto 0;
-            border-radius: 2px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .step-card {
-            background-color: #FFFFFF;
-            padding: 40px 30px;
-            border-radius: 16px;
-            border: 1px solid #F0EAE1;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(90, 58, 41, 0.03);
-        }
-
-        .step-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: #6FD3A9;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .step-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(90, 58, 41, 0.08);
-            border-color: transparent;
-        }
-
-        .step-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .step-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: #8C1C38;
-            opacity: 0.2;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: block;
-            line-height: 1;
-        }
-
-        .step-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: #5A3A29;
-        }
-
-        .audience {
-            padding: 100px 0;
-            background-color: #6FD3A9;
-            color: #FFFFFF;
-            text-align: center;
-            position: relative;
-        }
-
-        .audience::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235A3A29' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
-        }
-
-        .audience .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .audience h2 {
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: #FFFFFF;
-        }
-
-        .audience p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        .audience .highlight {
-            color: #FBF8F1;
-            font-weight: 700;
-            border-bottom: 2px solid rgba(251, 248, 241, 0.6);
-        }
-
-        .pricing {
-            padding: 100px 0;
-            background-color: #FFFFFF;
-        }
-
-        .pricing-grid {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            align-items: stretch;
-        }
-
-        .price-card {
-            background: #FBF8F1;
-            padding: 50px 40px;
-            border-radius: 20px;
-            width: 340px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(90, 58, 41, 0.05);
-            border: 1px solid #F0EAE1;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s;
-        }
-
-        .price-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .price-card.premium {
-            background-color: #5A3A29;
-            color: #FFFFFF;
-            border: none;
-            box-shadow: 0 20px 40px rgba(90, 58, 41, 0.25);
-        }
-
-        .price-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .price-amount {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .price-card.premium .price-amount {
-            color: #6FD3A9;
-        }
-
-        .price-list {
-            list-style: none;
-            margin-bottom: 40px;
-            text-align: left;
-            flex-grow: 1;
-        }
-
-        .price-list li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .price-list li::before {
-            content: "—";
-            color: #6FD3A9;
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-
-        .price-card.premium .price-list li::before {
-            color: #8C1C38;
-        }
-
-        .price-card .btn {
-            width: 100%;
-        }
-
-        .cta-section {
-            padding: 120px 0;
-            text-align: center;
-            background-color: #FBF8F1;
-            position: relative;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(111, 211, 169, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .cta-section .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-section h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #5A3A29;
-        }
-
-        .cta-section .subtitle {
-            font-size: 1.1rem;
-            color: #7A5C4A;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        .cta-section .btn {
-            font-size: 1.1rem;
-            padding: 20px 50px;
-        }
-
-        footer {
-            padding: 50px 0;
-            text-align: center;
-            background-color: #5A3A29;
-            color: #FBF8F1;
-            font-size: 0.9rem;
-            font-weight: 300;
-        }
-
-        footer a {
-            color: #6FD3A9;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #FFFFFF;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            header { padding: 15px 20px; }
-            .header-logo { height: 35px; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero { padding: 60px 0; }
-            .hero-map { max-width: 100%; margin-bottom: 30px; border-radius: 12px; }
-            .section-title { font-size: 2.2rem; }
-            .price-card.premium { transform: none; }
-            .cta-section h2 { font-size: 2.2rem; }
-            .step-card { padding: 30px 20px; }
-        }
-    </style>
+/* map specific */
+.map-container {
+    height: 500px;
+    width: 100%;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin-top: 24px;
+    background: var(--paper);
+    position: relative;
+    display: none;
+}
+.map-container.active {
+    display: block;
+}
+#map {
+    width: 100%;
+    height: 100%;
+}
+.map-controls {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(255,255,255,0.95);
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.map-control-btn {
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font: 500 14px var(--body);
+    cursor: pointer;
+    color: var(--teal);
+    transition: all 0.2s;
+}
+.map-control-btn:hover {
+    background: var(--fog);
+}
+.map-control-btn.active {
+    background: var(--teal);
+    color: #fff;
+}
+.brand-icon {
+    height: 34px; 
+    width: auto; 
+    object-fit: contain;
+}
+</style>
 </head>
 <body>
 
-    <header>
-        <a href="https://alexey26010.github.io/syn/#map-section" target="_blank">
-            <img src="https://github.com/Alexey26010/blyaaa/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-10-29%20191610.png?raw=true" alt="Синхрон" class="header-logo">
-        </a>
-        <a href="https://alexey26010.github.io/syn/#map-section" class="nav-link" target="_blank">Перейти на сайт</a>
-    </header>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Синхрон, наверх"><img src="data:image/png;base64,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" alt="" width="18" height="34">Синхрон</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#how">Как это работает</a>
+      <a href="#tool">Собрать компанию</a>
+      <a href="#venues">Площадкам</a>
+      <a href="#parents">Родителям</a>
+    </nav>
+    <a class="btn btn-mint" href="#tool">Собрать компанию</a>
+  </div>
+</header>
 
-    <section class="hero">
-        <div class="container">
-            <img src="https://github.com/Alexey26010/pn/blob/main/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202026-10-29%20110050.png?raw=true" alt="Карта с тремя местами" class="hero-map">
-            <h1>Найдите <span class="italic-accent">идеальное место</span><br>для себя всего за минуту</h1>
-            <p class="subtitle">Персонализированные рекомендации досуга без рекламного шума и накрученных отзывов.</p>
-            <a href="https://alexey26010.github.io/syn/#map-section" class="btn" target="_blank">Подобрать место бесплатно</a>
-            <p class="proof">Алгоритм учитывает параметры ваших предпочтений, а не рейтинги заведений.</p>
+<main>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Куда пойдём после уроков? Решим за минуту</h1>
+      <p class="sub">Выбираем место для всей компании: всем по дороге, по карману и по возрасту</p>
+      <div class="cta">
+        <a class="btn btn-mint" href="#tool">Собрать компанию</a>
+        <a class="btn btn-line" href="#venues">Для площадок</a>
+      </div>
+      <p class="proof"><span><b>3 из 4</b> хоть раз попадали в место, которое не оправдало ожиданий. Опрос команды, 22&nbsp;человека</span></p>
+    </div>
+
+    <div class="chat" aria-label="Пример: компания решает в чате, куда пойти">
+      <div class="chat-head"><strong>После уроков</strong><span>4 участника, пятница 15:02</span></div>
+      <p class="msg"><small>Маша, Южная</small>Куда идём после уроков?</p>
+      <p class="msg"><small>Петя, Пражская</small>Давайте недорого, до 1&nbsp;500</p>
+      <p class="msg"><small>Аня, Чертановская</small>Мне 15, на 18+ не пустят</p>
+      <div class="bot">
+        <div class="bot-head"><svg viewBox="0 0 24 32" width="18" height="24" aria-hidden="true"><path fill="#830028" d="M12 0C5.4 0 0 5.3 0 11.9 0 20.8 12 32 12 32s12-11.2 12-20.1C24 5.3 18.6 0 12 0zm0 16.6a4.7 4.7 0 1 1 0-9.4 4.7 4.7 0 0 1 0 9.4z"/></svg>Синхрон нашёл 3 места для компании</div>
+        <ol>
+          <li>Прятки Южная <span>всем до 15&nbsp;мин, от 1&nbsp;500&nbsp;₽</span></li>
+          <li>Лазертаг «Убежище» <span>всем до 15&nbsp;мин</span></li>
+          <li>Битцевский лес <span>всем до 20&nbsp;мин, бесплатно</span></li>
+        </ol>
+        <p>Голосуйте цифрой</p>
+      </div>
+      <p class="msg me"><small>Маша</small>1!</p>
+      <p class="msg"><small>Аня</small>Я тоже за 1</p>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="sec-title">Три шага от спора до плана</h2>
+    <div class="steps">
+      <div class="step"><h3>Кинь ссылку в чат</h3><p>Каждый за 10 секунд отмечает свою станцию, бюджет и настроение. Регистрация не нужна.</p></div>
+      <div class="step"><h3>Синхрон выбирает 3 места</h3><p>Самому дальнему ехать меньше всего, всем по карману, и всех пустят по возрасту.</p></div>
+      <div class="step"><h3>Голосуйте и идите</h3><p>Варианты уходят в чат компании, а маршрут каждый открывает в Яндекс Картах.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="tool">
+  <div class="wrap">
+    <h2 class="sec-title">Соберите компанию</h2>
+    <p class="sec-lead">Впишите станции метро друзей. Синхрон найдёт места рядом со школой № 1158, до которых самому дальнему ехать меньше всего.</p>
+    <div class="tool">
+      <form class="form" id="pick" novalidate>
+        <fieldset>
+          <legend>Кто идёт</legend>
+          <div id="friends"></div>
+          <button type="button" class="add" id="add">Добавить друга</button>
+        </fieldset>
+        <fieldset>
+          <legend>Бюджет на человека</legend>
+          <div class="chips" role="radiogroup">
+            <input type="radio" name="budget" id="b-free" value="free"><label for="b-free">Бесплатно</label>
+            <input type="radio" name="budget" id="b-1500" value="1500"><label for="b-1500">До 1&nbsp;500&nbsp;₽</label>
+            <input type="radio" name="budget" id="b-push" value="pushkin"><label for="b-push">Пушкинская карта</label>
+            <input type="radio" name="budget" id="b-any" value="any" checked><label for="b-any">Не важно</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Настроение</legend>
+          <div class="chips">
+            <input type="radio" name="mood" id="m-active" value="active" checked><label for="m-active">Активно</label>
+            <input type="radio" name="mood" id="m-calm" value="calm"><label for="m-calm">Спокойно</label>
+            <input type="radio" name="mood" id="m-culture" value="culture"><label for="m-culture">Культурно</label>
+            <input type="radio" name="mood" id="m-any" value="any"><label for="m-any">Не важно</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><label for="age">Сколько лет самому младшему</label></legend>
+          <select id="age">
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="15" selected>15</option>
+            <option value="16">16</option>
+            <option value="18">18 и старше</option>
+          </select>
+        </fieldset>
+        <button class="btn btn-teal go" type="submit">Подобрать 3 места</button>
+      </form>
+
+      <div class="results" id="results" aria-live="polite">
+        <div class="empty"><strong>Здесь появятся 3 места</strong>Проверьте станции и нажмите «Подобрать 3 места». Для примера уже вписана компания Маши.</div>
+      </div>
+    </div>
+    
+    <div class="map-container" id="map-container">
+        <div class="map-controls">
+            <button class="map-control-btn" type="button" onclick="setRouteMode('driving-car')" id="btn-car">На машине</button>
+            <button class="map-control-btn active" type="button" onclick="setRouteMode('foot-walking')" id="btn-foot">Пешком</button>
         </div>
-    </section>
+        <div id="map"></div>
+    </div>
 
-    <section class="how-it-works">
-        <div class="container">
-            <h2 class="section-title">Как это работает</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <span class="step-number">01</span>
-                    <h3>Настройте профиль</h3>
-                    <p>Отметьте, какое у вас сегодня настроение и компания.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-number">02</span>
-                    <h3>Получите выборку</h3>
-                    <p>Система предлагает 3 места, которые подходят именно вам сейчас.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-number">03</span>
-                    <h3>Забронируйте визит</h3>
-                    <p>Выбирайте локацию, где вас действительно ждут, основываясь на честных отзывах.</p>
-                </div>
-            </div>
+    <datalist id="stations"></datalist>
+  </div>
+</section>
+
+<section id="facts">
+  <div class="wrap">
+    <h2 class="sec-title">Почему это нужно сейчас</h2>
+    <div class="facts">
+      <div class="fact"><div class="n">2 из 3</div><p>ищут, куда пойти в свободное время, каждую неделю или чаще</p><small>Опрос команды, 22&nbsp;человека</small></div>
+      <div class="fact"><div class="n">3 из 4</div><p>хоть раз попадали в место, которое не оправдало ожиданий</p><small>Опрос команды, 22&nbsp;человека</small></div>
+      <div class="fact local"><div class="n">9 из 15</div><p>квестов у трёх станций метро рядом со школой закрыты, ещё 3 только для 18+</p><small><a href="https://mir-kvestov.ru/metro/juzhnaja" target="_blank" rel="noopener">Мир квестов</a>, 6 ноября 2026</small></div>
+      <div class="fact"><div class="n">59%</div><p>школьников больше всего любят гулять с друзьями, а мест для подростков в городе почти нет</p><small><a href="https://www.mgpu.ru/wp-content/uploads/2023/11/2_Nevidimye-gorodu-podrostki-i-ih-mesto-v-gorode_Ivanova-Barsukova.pdf" target="_blank" rel="noopener">МГПУ</a>, «Невидимые городу подростки»</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="venues">
+  <div class="wrap">
+    <h2 class="sec-title">Площадкам: платите только за гостей, которые пришли</h2>
+    <p class="sec-lead">В будни днём залы часто пустуют, поэтому площадки сами делают это время дешевле. Например, боулинг в «Космике»: 1&nbsp;200&nbsp;₽ в будни днём и 2&nbsp;700&nbsp;₽ в выходные. Синхрон приводит компании школьников именно в эти часы.</p>
+    <div class="biz">
+      <dl class="terms">
+        <div><dt>Кто платит</dt><dd>Квесты, боулинг, караоке, антикафе и кино. Подросткам Синхрон бесплатен.</dd></div>
+        <div><dt>За что</dt><dd>За компанию, которая пришла через Синхрон. Это видно по промокоду или QR-коду на месте.</dd></div>
+        <div><dt>Сколько</dt><dd>10% от чека. Без абонентской платы и платы за показы.</dd></div>
+        <div><dt>Чего нельзя</dt><dd>Купить место в подборке. Синхрон показывает только то, что подходит компании.</dd></div>
+      </dl>
+      <div class="receipt" id="calc">
+        <h3>Сколько заработает ваша площадка</h3>
+        <p class="r-sub">Двигайте ползунки</p>
+        <div class="slider">
+          <label for="slots"><span>Свободных слотов в неделю</span><output id="slots-out">10</output></label>
+          <input type="range" id="slots" min="1" max="40" value="10">
         </div>
-    </section>
-
-    <section class="audience">
-        <div class="container">
-            <h2>Для кого</h2>
-            <p>
-                Для простого городского жителя <span class="highlight">20–35 лет</span>, который устал тратить час времени на поиск места и в итоге попадать в посредственные места из-за купленных рейтингов. 
-                А также для подростка, который хочет найти новое интересное место для проведения своего досуга.
-            </p>
+        <div class="slider">
+          <label for="check"><span>Средний чек компании</span><output id="check-out">5&nbsp;000&nbsp;₽</output></label>
+          <input type="range" id="check" min="1000" max="15000" step="500" value="5000">
         </div>
-    </section>
-
-    <section class="pricing">
-        <div class="container">
-            <h2 class="section-title">Сколько стоит</h2>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <h3>Базовая версия</h3>
-                    <span class="price-amount">0 ₽</span>
-                    <ul class="price-list">
-                        <li>Поиск мест по вашим фильтрам</li>
-                        <li>Доступ к базе заведений</li>
-                        <li>Честные отзывы</li>
-                    </ul>
-                    <a href="https://alexey26010.github.io/syn/#map-section" class="btn btn-outline" target="_blank">Попробовать</a>
-                </div>
-
-                <div class="price-card premium">
-                    <h3>Синхрон+</h3>
-                    <span class="price-amount">299 ₽<small>/мес</small></span>
-                    <ul class="price-list">
-                        <li>Доступ к расширенным фильтрам</li>
-                        <li>История подборок</li>
-                        <li>Возможность видеть скидки в заведениях</li>
-                    </ul>
-                    <a href="https://alexey26010.github.io/syn/#map-section" class="btn" target="_blank" style="background-color: #6FD3A9; color: #FFFFFF;">Подключить</a>
-                </div>
-            </div>
+        <div class="sum">
+          <div><span>Новая выручка в месяц</span><b id="rev"></b></div>
+          <div class="fee"><span>Комиссия Синхрона, 10%</span><span id="fee"></span></div>
+          <div class="big"><span>Остаётся вам</span><span id="keep"></span></div>
         </div>
-    </section>
+        <a class="btn btn-teal" id="join" href="#calc">Подключить площадку</a>
+        <p class="wait" id="join-wait" hidden>Подключение площадок откроется на пилоте в ноябре.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>Начните планировать <span class="italic-accent">идеальный вечер</span> прямо сейчас</h2>
-            <p class="subtitle">Попробуйте первую подборку бесплатно.</p>
-            <a href="https://alexey26010.github.io/syn/#map-section" class="btn" target="_blank">Получить подборку</a>
-        </div>
-    </section>
+<section id="parents">
+  <div class="wrap two">
+    <div>
+      <h2 class="sec-title">Родителям</h2>
+      <ul class="plain">
+        <li>Показываем только места, куда пускают по возрасту. Квесты 18+ школьникам не попадаются.</li>
+        <li>План похода можно переслать родителям: место, адрес и время в пути.</li>
+        <li>Мы не собираем личные данные. Подбор считается прямо в телефоне, имена никуда не отправляются.</li>
+      </ul>
+    </div>
+    <div id="team">
+      <h2 class="sec-title">Команда «Авантюристы»</h2>
+      <ul class="team">
+        <li><b>Алексей</b><span>сайт и интерфейс</span></li>
+        <li><b>Латиф</b><span>карта и данные о местах</span></li>
+        <li><b>Арсений</b><span>алгоритм подбора</span></li>
+        <li><b>Милана</b><span>опросы и тесты</span></li>
+        <li><b>Михаил</b><span>площадки и партнёры</span></li>
+      </ul>
+      <p class="note" style="margin-top:14px">Школа № 1158, факультет социальных инноваций и креативной индустрии</p>
+    </div>
+  </div>
+</section>
+</main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Synchronous. Все права защищены.</p>
-            <p><a href="https://alexey26010.github.io/syn/#map-section" target="_blank">alexey26010.github.io/syn/</a></p>
-        </div>
-    </footer>
+<footer>
+  <div class="wrap">
+    <p><strong>© 2026 Синхрон.</strong> Школьный проект команды «Авантюристы».</p>
+    <p>Данные: опрос команды (22&nbsp;человека), <a href="https://www.mgpu.ru/wp-content/uploads/2023/11/2_Nevidimye-gorodu-podrostki-i-ih-mesto-v-gorode_Ivanova-Barsukova.pdf" target="_blank" rel="noopener">МГПУ</a>, <a href="https://mir-kvestov.ru/metro/chertanovskaja" target="_blank" rel="noopener">Мир квестов</a>, <a href="https://yandex.com/maps/org/kosmik/1088470828/" target="_blank" rel="noopener">Яндекс Карты</a>. Цены и отметки на 6 ноября 2026, перед походом проверьте их на сайте места.</p>
+  </div>
+</footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+// Контакт команды для площадок: впишите почту (mailto:имя@почта.ru) или ссылку на Telegram (https://t.me/имя)
+const TEAM_CONTACT = 'alexis26102010@yandex.ru';
+
+// Станции метро: название, широта, долгота (координаты примерные)
+const STATIONS = [
+  ['Южная',55.6222,37.6092],['Пражская',55.6114,37.6036],['Чертановская',55.6408,37.6061],
+  ['Улица Академика Янгеля',55.5969,37.6014],['Аннино',55.5833,37.5972],['Бульвар Дмитрия Донского',55.5687,37.5765],
+  ['Севастопольская',55.6514,37.5981],['Каховская',55.6527,37.5966],['Нахимовский проспект',55.6622,37.6053],
+  ['Нагорная',55.6733,37.6106],['Нагатинская',55.6831,37.6214],['Тульская',55.7089,37.6225],
+  ['Серпуховская',55.7267,37.6248],['Добрынинская',55.729,37.6225],['Варшавская',55.6531,37.6197],
+  ['Каширская',55.6547,37.6486],['Кантемировская',55.6358,37.6561],['Царицыно',55.6211,37.6694],
+  ['Орехово',55.6131,37.6953],['Домодедовская',55.61,37.7178],['Красногвардейская',55.6139,37.7447],
+  ['Коломенская',55.6778,37.6636],['Технопарк',55.695,37.664],['Автозаводская',55.7069,37.657],
+  ['Павелецкая',55.7297,37.6386],['Новокузнецкая',55.7424,37.6292],['Третьяковская',55.7408,37.6264],
+  ['Театральная',55.7577,37.6194],['Охотный Ряд',55.7575,37.6158],['Лубянка',55.7597,37.6253],
+  ['Китай-город',55.7564,37.6311],['Чистые пруды',55.765,37.6383],['Курская',55.7583,37.6611],
+  ['Комсомольская',55.7756,37.6556],['Бауманская',55.7722,37.6789],['Таганская',55.7422,37.6531],
+  ['Пушкинская',55.7656,37.6053],['Маяковская',55.7697,37.5964],['Белорусская',55.7772,37.5819],
+  ['Арбатская',55.7522,37.6011],['Смоленская',55.7478,37.5833],['Киевская',55.7433,37.5656],
+  ['Парк культуры',55.7353,37.5933],['Октябрьская',55.7292,37.6111],['Шаболовская',55.7186,37.6078],
+  ['Ленинский проспект',55.7069,37.5856],['Академическая',55.6878,37.5733],['Профсоюзная',55.6778,37.5628],
+  ['Новые Черёмушки',55.6703,37.5544],['Калужская',55.6567,37.54],['Беляево',55.6425,37.5264],
+  ['Коньково',55.6333,37.5192],['Тёплый Стан',55.6189,37.5058],['Ясенево',55.6061,37.5333],
+  ['Новоясеневская',55.6017,37.5531],['Битцевский парк',55.6,37.5558],['Лесопарковая',55.5817,37.5778],
+  ['Марьино',55.6497,37.7436],['Братиславская',55.6588,37.7508],['Люблино',55.6764,37.7617],
+  ['Печатники',55.6928,37.7283],['Кожуховская',55.7064,37.6853],['Дубровка',55.7181,37.6764],
+  ['Пролетарская',55.7317,37.6664],['Волгоградский проспект',55.725,37.6872],['Текстильщики',55.7092,37.7322],
+  ['Кузьминки',55.7056,37.7633],['Выхино',55.7158,37.8172],['ВДНХ',55.8197,37.6411],
+  ['Динамо',55.7897,37.5583],['Сокол',55.805,37.515]
+];
+
+// Места рядом со школой № 1158. Цены и отметки на 6 ноября 2026 из открытых источников.
+const PLACES = [
+  {name:'Прятки Южная', kind:'Прятки в темноте', address:'Днепропетровская ул., 2, БЦ Global City, 1 этаж', metro:'Южная', lat:55.6223, lon:37.6104, age:7, moods:['active'],
+   price:{type:'team', base:6000, upTo:4, extra:1500}, url:'https://mir-kvestov.ru/quests/vtemnote-pryatki-yuzhnaya'},
+  {name:'Лазертаг «Убежище»', kind:'Лазертаг', address:'Кировоградская ул., 8к6', metro:'Южная', lat:55.6265, lon:37.607, age:6, moods:['active'],
+   price:{type:'from', total:6600, label:'от 6\u00A0600\u00A0₽ за команду'}, url:'https://mir-kvestov.ru/quests/lasertag-ubezhishhe'},
+  {name:'Городской квест «Чертаново»', kind:'Городской квест', address:'старт у метро Чертановская', metro:'Чертановская', lat:55.6408, lon:37.6061, age:14, moods:['active'],
+   price:{type:'site', label:'цена у организатора'}, url:'https://mir-kvestov.ru/metro/chertanovskaja'},
+  {name:'Квесты Grand Quest', kind:'Квест-перформанс', address:'у метро Чертановская', metro:'Чертановская', lat:55.6408, lon:37.6061, age:18, moods:['active'],
+   price:{type:'site', label:'цена на сайте'}, url:'https://mir-kvestov.ru/quests/grand-quest-paradox'},
+  {name:'Синема Парк на Южной', kind:'Кино', address:'Днепропетровская ул., 2', metro:'Южная', lat:55.6223, lon:37.6104, age:0, moods:['culture','calm'],
+   price:{type:'site', label:'цены в афише кинотеатра'}, pushkin:'Пушкинская карта на российские фильмы'},
+  {name:'Киномакс на Пражской', kind:'Кино', address:'Кировоградская ул., 13А, ТРЦ Columbus', metro:'Пражская', lat:55.6113, lon:37.6067, age:0, moods:['culture','calm'],
+   price:{type:'site', label:'цены в афише кинотеатра'}, pushkin:'Пушкинская карта на российские фильмы'},
+  {name:'Дом культуры «Чертаново»', kind:'Концерты и кружки', address:'Сумской пр., 6а', metro:'Чертановская', lat:55.643, lon:37.604, age:0, moods:['culture'],
+   price:{type:'site', label:'афиша на сайте ДК'}},
+  {name:'Музей-заповедник «Царицыно»', kind:'Музей', address:'Дольская ул., 1', metro:'Царицыно', lat:55.6158, lon:37.6858, age:0, moods:['culture'],
+   price:{type:'site', label:'цены на сайте музея'}, pushkin:'Пушкинская карта на выставки и экскурсии', url:'https://tsaritsyno-museum.ru/'},
+  {name:'Парк «Царицыно»', kind:'Парк', address:'Дольская ул., 1', metro:'Царицыно', lat:55.6175, lon:37.681, age:0, moods:['calm','active'],
+   price:{type:'free'}},
+  {name:'Битцевский лес', kind:'Лес и тропы', address:'западный край Чертанова', metro:'Чертановская', lat:55.6385, lon:37.585, age:0, moods:['calm','active'],
+   price:{type:'free'}},
+  {name:'Библиотека № 196', kind:'Библиотека', address:'Симферопольский б-р, 24к1', metro:'Чертановская', lat:55.6455, lon:37.601, age:0, moods:['calm'],
+   price:{type:'free'}},
+  {name:'Библиотека № 151', kind:'Библиотека', address:'мкр. Северное Чертаново, 2к207', metro:'Чертановская', lat:55.638, lon:37.6, age:0, moods:['calm'],
+   price:{type:'free'}}
+];
+
+const DEFAULT_FRIENDS = [['Маша','Южная'],['Петя','Пражская'],['Аня','Чертановская'],['Лёша','Севастопольская']];
+const MAX_FRIENDS = 6;
+const $ = s => document.querySelector(s);
+const norm = s => s.toLowerCase().replace(/ё/g,'е').replace(/\s+/g,' ').trim();
+const fmt = n => Math.round(n).toLocaleString('ru-RU');
+const rub = n => fmt(n) + ' ₽';
+
+// datalist
+$('#stations').innerHTML = STATIONS.map(s => `<option value="${s[0]}">`).join('');
+
+// friends
+function addFriend(name='', station=''){
+  const box = $('#friends');
+  if (box.children.length >= MAX_FRIENDS) return;
+  const i = Date.now() + Math.random();
+  const row = document.createElement('div');
+  row.className = 'friend';
+  row.innerHTML = `
+    <input type="text" aria-label="Имя" placeholder="Имя" value="${name}" maxlength="20">
+    <input type="text" aria-label="Станция метро" placeholder="Станция метро" list="stations" value="${station}" autocomplete="off">
+    <button type="button" class="del" aria-label="Убрать друга">×</button>`;
+  row.querySelector('.del').addEventListener('click', () => { if (box.children.length > 2) { row.remove(); syncAdd(); } else toast('В компании должно быть хотя бы двое'); });
+  box.appendChild(row);
+  syncAdd();
+}
+function syncAdd(){ $('#add').disabled = $('#friends').children.length >= MAX_FRIENDS; }
+$('#add').addEventListener('click', () => { addFriend(); const ins = $('#friends').lastElementChild.querySelectorAll('input'); ins[0].focus(); });
+DEFAULT_FRIENDS.forEach(f => addFriend(f[0], f[1]));
+
+// geometry
+function km(a, b){
+  const R = 6371, toR = x => x * Math.PI / 180;
+  const dLat = toR(b[0]-a[0]), dLon = toR(b[1]-a[1]);
+  const h = Math.sin(dLat/2)**2 + Math.cos(toR(a[0]))*Math.cos(toR(b[0]))*Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+// примерное время в пути: метро (10 мин + 2,5 мин на км по прямой) или пешком, если ближе
+function minutes(d){ return Math.max(2, Math.round(Math.min(10 + 2.5*d, d*1.3*12))); }
+
+function perPerson(p, n){
+  const pr = p.price;
+  if (pr.type === 'free') return 0;
+  if (pr.type === 'team') return (pr.base + Math.max(0, n - pr.upTo) * pr.extra) / n;
+  if (pr.type === 'from') return pr.total / n;
+  return null;
+}
+function priceText(p, n){
+  const v = perPerson(p, n);
+  if (v === 0) return 'бесплатно';
+  if (p.price.type === 'team') return 'от ' + rub(Math.ceil(v/10)*10) + ' с человека';
+  if (p.price.type === 'from') return p.price.label;
+  return p.price.label;
+}
+function budgetOk(p, b, n){
+  if (b === 'any') return true;
+  if (b === 'free') return p.price.type === 'free';
+  if (b === 'pushkin') return !!p.pushkin;
+  const v = perPerson(p, n);
+  return v !== null && v <= Number(b);
+}
+const moodOk = (p, m) => m === 'any' || p.moods.includes(m);
+
+function readFriends(){
+  const rows = [...$('#friends').children];
+  let ok = true;
+  const list = rows.map((row, idx) => {
+    const [nameEl, stEl] = row.querySelectorAll('input');
+    row.querySelector('.err')?.remove();
+    stEl.removeAttribute('aria-invalid');
+    const st = STATIONS.find(s => norm(s[0]) === norm(stEl.value));
+    if (!st){
+      ok = false; stEl.setAttribute('aria-invalid','true');
+      const e = document.createElement('p'); e.className = 'err';
+      e.textContent = stEl.value.trim() ? 'Такой станции нет в списке. Выберите из подсказок' : 'Впишите станцию метро';
+      row.appendChild(e);
+    }
+    return { name: nameEl.value.trim() || ('Друг ' + (idx + 1)), station: st };
+  });
+  return ok ? list : null;
+}
+
+let last = null;
+let map;
+let markers = [];
+let activeRoute = null;
+let routeInfoPlacemark = null;
+let currentRouteMode = 'foot-walking';
+const ORS_API_KEY = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImQ4ZmVlOTU0M2EzYTRhOWNiNjE5OWY2ZDM3YTM3ZmYzIiwiaCI6Im11cm11cjY0In0=';
+
+function initMap() {
+    map = new ymaps.Map("map", {
+        center: [55.634496, 37.593749],
+        zoom: 13,
+        controls: ['zoomControl', 'geolocationControl']
+    });
+}
+
+ymaps.ready(initMap);
+
+function drawMap(places) {
+    document.getElementById('map-container').classList.add('active');
+    
+    for (let i = 0; i < markers.length; i++) {
+        map.geoObjects.remove(markers[i]);
+    }
+    markers = [];
+
+    if (activeRoute) {
+        map.geoObjects.remove(activeRoute);
+        activeRoute = null;
+    }
+    if (routeInfoPlacemark) {
+        map.geoObjects.remove(routeInfoPlacemark);
+        routeInfoPlacemark = null;
+    }
+
+    if (!places || places.length === 0) return;
+
+    const bounds = [];
+    
+    for (let i = 0; i < places.length; i++) {
+        const p = places[i];
+        bounds.push([p.lat, p.lon]);
+
+        const mark = new ymaps.Placemark([p.lat, p.lon], {
+            balloonContentHeader: '<b>' + p.name + '</b>',
+            balloonContentBody: '<p style="margin:5px 0;font-size:13px;color:#555;">' + p.address + '</p>',
+            hintContent: p.name
+        }, {
+            preset: 'islands#greenCircleDotIcon'
+        });
+
+        map.geoObjects.add(mark);
+        markers.push(mark);
+    }
+
+    if (bounds.length > 0) {
+        map.setBounds(bounds, {
+            checkZoomRange: true,
+            zoomMargin: 50
+        });
+    }
+}
+
+function setRouteMode(mode) {
+    currentRouteMode = mode;
+    document.getElementById('btn-car').classList.toggle('active', mode === 'driving-car');
+    document.getElementById('btn-foot').classList.toggle('active', mode === 'foot-walking');
+    
+    if (last && last.top.length > 0) {
+        buildRouteToFirst(last.top[0].p);
+    }
+}
+
+function buildRouteToFirst(place) {
+    if (!place) return;
+    
+    const start = [DEFAULT_FRIENDS[0][1], DEFAULT_FRIENDS[1][1]]; // Just for demo, using first station
+    const startStation = STATIONS.find(s => s[0] === DEFAULT_FRIENDS[0][1]);
+    if (!startStation) return;
+
+    const startCoords = [startStation[1], startStation[2]];
+    const endCoords = [place.lat, place.lon];
+
+    if (activeRoute) {
+        map.geoObjects.remove(activeRoute);
+        activeRoute = null;
+    }
+    if (routeInfoPlacemark) {
+        map.geoObjects.remove(routeInfoPlacemark);
+        routeInfoPlacemark = null;
+    }
+
+    const loadingBalloon = new ymaps.Placemark(endCoords, {
+        balloonContent: 'Строим маршрут…'
+    });
+    map.geoObjects.add(loadingBalloon);
+    loadingBalloon.balloon.open();
+
+    const body = {
+        coordinates: [
+            [startCoords[1], startCoords[0]],
+            [endCoords[1],   endCoords[0]]
+        ],
+        format: 'geojson'
+    };
+
+    const url = 'https://api.openrouteservice.org/v2/directions/' + currentRouteMode + '/geojson';
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Authorization': ORS_API_KEY,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    })
+    .then(function (response) {
+        if (!response.ok) {
+            throw new Error('ORS HTTP ' + response.status);
+        }
+        return response.json();
+    })
+    .then(function (data) {
+        map.geoObjects.remove(loadingBalloon);
+
+        const feature = data.features && data.features[0];
+        if (!feature) throw new Error('Пустой ответ ORS');
+
+        const coords = feature.geometry.coordinates.map(function (c) {
+            return [c[1], c[0]];
+        });
+
+        activeRoute = new ymaps.Polyline(coords, {}, {
+            strokeColor: '#830028',
+            strokeWidth: 6,
+            strokeOpacity: 0.9
+        });
+        map.geoObjects.add(activeRoute);
+
+        const summary = feature.properties.summary || {};
+        const distanceKm = (summary.distance / 1000).toFixed(2);
+        const timeMin = Math.round(summary.duration / 60);
+
+        map.setBounds(activeRoute.geometry.getBounds(), {
+            checkZoomRange: true,
+            zoomMargin: 40
+        });
+
+        routeInfoPlacemark = new ymaps.Placemark(endCoords, {
+            balloonContentHeader: '<b>' + place.name + '</b>',
+            balloonContentBody:
+                '<p style="margin:6px 0;font-size:13px;">' +
+                'Расстояние: <b>' + distanceKm + ' км</b><br>' +
+                'В пути: <b>~' + timeMin + ' мин</b>' +
+                '</p>'
+        }, {
+            preset: 'islands#redCircleDotIcon'
+        });
+        map.geoObjects.add(routeInfoPlacemark);
+        routeInfoPlacemark.balloon.open();
+    })
+    .catch(function (err) {
+        map.geoObjects.remove(loadingBalloon);
+        console.error('Ошибка построения маршрута:', err);
+    });
+}
+
+function pick(e){
+  e && e.preventDefault();
+  const friends = readFriends();
+  if (!friends){ toast('Проверьте станции, отмеченные красным'); return; }
+  const n = friends.length;
+  const budget = document.querySelector('input[name=budget]:checked').value;
+  const mood = document.querySelector('input[name=mood]:checked').value;
+  const youngest = Number($('#age').value);
+
+  const scored = PLACES.filter(p => p.age <= youngest).map(p => {
+    const times = friends.map(f => minutes(km([f.station[1], f.station[2]], [p.lat, p.lon])));
+    const max = Math.max(...times), min = Math.min(...times);
+    const pp = perPerson(p, n);
+    return { p, times, max, spread: max - min, cost: pp === null ? 99999 : pp };
+  }).sort((a, b) => a.max - b.max || a.spread - b.spread || a.cost - b.cost);
+
+  let notes = [];
+  let pool = scored.filter(s => budgetOk(s.p, budget, n) && moodOk(s.p, mood));
+  if (pool.length < 3){
+    const extra = scored.filter(s => budgetOk(s.p, budget, n) && !pool.includes(s));
+    if (extra.length){ notes.push('настроение'); pool = pool.concat(extra); }
+  }
+  if (pool.length < 3){
+    const extra = scored.filter(s => !pool.includes(s));
+    if (extra.length){ notes.push('бюджет'); pool = pool.concat(extra); }
+  }
+  const top = pool.slice(0, 3);
+  last = { friends, top, n };
+  
+  drawMap(top.map(t => t.p));
+  
+  if (top.length > 0) {
+      setTimeout(() => buildRouteToFirst(top[0].p), 800);
+  }
+
+  render(top, friends, n, notes, budget);
+}
+
+function render(top, friends, n, notes, budget){
+  const box = $('#results');
+  if (!top.length){ box.innerHTML = '<div class="empty"><strong>Мест не нашлось</strong>Попробуйте выбрать возраст постарше или другой бюджет.</div>'; return; }
+  const far = Math.max(...top.map(t => t.max), 30);
+  const relax = notes.length ? `<p class="note">Точных совпадений мало, поэтому ослабили фильтр: ${notes.join(' и ')}</p>` : '';
+  box.innerHTML = `
+    <div class="res-head"><h3>3 места для всей компании</h3><span class="note">Время в пути примерное</span></div>
+    ${relax}
+    <div>${top.map((t, i) => card(t, i, friends, n, far)).join('')}</div>
+    <div class="share">
+      <button class="btn btn-teal" type="button" id="send">Отправить в чат</button>
+      <button class="btn btn-ghost" type="button" id="parents-btn">Переслать родителям</button>
+    </div>
+    <p class="fine">Цены и отметки взяты из открытых источников 6 ноября 2026. Перед походом проверьте их на сайте места.</p>`;
+  $('#send').addEventListener('click', shareChat);
+  $('#parents-btn').addEventListener('click', shareParents);
+  if (window.matchMedia('(max-width: 900px)').matches) box.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+}
+
+function card(t, i, friends, n, far){
+  const p = t.p;
+  const map = 'https://yandex.ru/maps/?text=' + encodeURIComponent(p.name + ', ' + p.address + ', Москва');
+  const bars = friends.map((f, k) => {
+    const m = t.times[k];
+    return `<div class="bar${m === t.max ? ' far' : ''}"><span>${esc(f.name)}, ${f.station[0]}</span><i style="width:${Math.max(6, Math.round(m / far * 100))}%"></i><b>≈${m} мин</b></div>`;
+  }).join('');
+  const tags = [`<span class="tag">${p.age ? 'с ' + p.age + ' лет' : 'без ограничений по возрасту'}</span>`,
+                `<span class="tag">${priceText(p, n)}</span>`];
+  if (p.pushkin) tags.push(`<span class="tag p">${p.pushkin}</span>`);
+  const why = `Самому дальнему ехать ≈${t.max} мин.` + (perPerson(p, n) === 0 ? ' Бесплатно.' : '');
+  return `<article class="place" onclick="buildRouteToFirst(PLACES.find(x => x.name === '${p.name.replace(/'/g, "\\'")}'))">
+    <div class="place-top"><div class="rank">${i + 1}</div><div>
+      <h4>${p.name}</h4><p class="meta">${p.kind}, ${p.address}, м. ${p.metro}</p>
+      <div class="tags">${tags.join('')}</div></div></div>
+    <div class="bars" aria-label="Время в пути для каждого">${bars}</div>
+    <p class="why">${why}</p>
+    <div class="links"><a href="${map}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Открыть в Яндекс Картах</a>${p.url ? `<a href="${p.url}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Сайт места</a>` : ''}</div>
+  </article>`;
+}
+function esc(s){ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+const pageUrl = () => location.href.split('#')[0];
+function chatText(){
+  const { top, n } = last;
+  const lines = top.map((t, i) => `${i + 1}) ${t.p.name}, ${t.p.address}. Всем до ${t.max} мин, ${priceText(t.p, n)}`);
+  return `Куда идём после уроков? Синхрон подобрал 3 места:\n${lines.join('\n')}\nПишите номер!`;
+}
+function parentsText(){
+  const t = last.top[0];
+  return `Мы с друзьями идём в «${t.p.name.replace(/[«»]/g,'')}»: ${t.p.address}, метро ${t.p.metro}. ${t.p.age ? 'Место для ' + t.p.age + '+.' : ''} План подобрали в Синхроне.`;
+}
+async function share(text, done){
+  const url = pageUrl();
+  if (navigator.share){
+    try { await navigator.share({ text, url }); return; }
+    catch (err){ if (err && err.name === 'AbortError') return; }
+  }
+  const full = text + '\n' + url;
+  try { await navigator.clipboard.writeText(full); toast(done); return; } catch (e) {}
+  const ta = document.createElement('textarea'); ta.value = full; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); toast(done); } catch (e) { toast('Не удалось скопировать. Выделите текст вручную'); }
+  ta.remove();
+}
+function shareChat(){ if (last) share(chatText(), 'Текст скопирован. Вставьте его в чат компании'); }
+function shareParents(){ if (last) share(parentsText(), 'Текст скопирован. Перешлите его родителям'); }
+
+let tt;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2800); }
+
+$('#pick').addEventListener('submit', pick);
+
+// calculator
+function calc(){
+  const slots = Number($('#slots').value), check = Number($('#check').value);
+  const revenue = slots * check * 4, fee = revenue * 0.1;
+  $('#slots-out').textContent = slots;
+  $('#check-out').textContent = rub(check);
+  $('#rev').textContent = rub(revenue);
+  $('#fee').textContent = '−' + rub(fee);
+  $('#keep').textContent = rub(revenue - fee);
+}
+['slots','check'].forEach(id => $('#' + id).addEventListener('input', calc));
+calc();
+
+// partner contact
+if (TEAM_CONTACT){ $('#join').href = TEAM_CONTACT; $('#join').target = '_blank'; $('#join').rel = 'noopener'; }
+else { $('#join').hidden = true; $('#join-wait').hidden = false; }
+</script>
 </body>
 </html>
